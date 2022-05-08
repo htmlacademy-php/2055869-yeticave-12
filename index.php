@@ -1,6 +1,8 @@
 <?php
 $is_auth = rand(0, 1);
 
+$currentTime = date("H:i");
+
 $user_name = 'erma4ina nenavidit git'; // укажите здесь ваше имя
 
 $categories = [
