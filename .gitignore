@@ -9,3 +9,5 @@ Thumbs.db
 vendor
 uploads/*
 !uploads/.gitkeep
+.vscode/*
+.vscode/extensions.json
