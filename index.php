@@ -1,9 +1,14 @@
 <?php
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 $is_auth = rand(0, 1);
 
 $currentTime = date("H:i");
 
-$user_name = 'erma4ina nenavidit git'; // укажите здесь ваше имя
+$user_name = 'erma4ina nenavidit git'; 
 
 $categories = [
     'promo__item--boards' => 'Доски и лыжи',
