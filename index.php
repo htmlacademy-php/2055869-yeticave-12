@@ -133,8 +133,8 @@ $lots = [
                                 <h3 class="lot__title"><a class="text-link" href="pages/lot.html"><?= $item['name'] ?></a></h3>
                                 <div class="lot__state">
                                     <div class="lot__rate">
-                                        <span class="lot__amount"><?= $item['price'] ?></span>
-                                        <span class="lot__cost">цена<b class="rub">р</b></span>
+                                        <span class="lot__amount">Стартовая цена</span>
+                                        <span class="lot__cost"><?= $item['price'] ?><b class="rub">р</b></span>
                                     </div>
                                     <div class="lot__timer timer">
                                         <?= $currentTime ?>
