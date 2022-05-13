@@ -58,6 +58,14 @@ $lots = [
         'url' => 'img/lot-6.jpg'
     ],
 ];
+
+function lotPrice(int $price)
+{
+    $price = number_format($price, 0, '', ' ');
+    $price .= ' ₽';
+    return $price;
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="ru">
