@@ -59,8 +59,9 @@ $lots = [
     ],
 ];
 
-function lotPrice(int $price)
+function lotPrice(float $price): string
 {
+    $price = ceil($price);
     $price = number_format($price, 0, '', ' ');
     $price .= ' ₽';
     return $price;
