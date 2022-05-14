@@ -143,4 +143,19 @@ function include_template($name, array $data = []) {
     return $result;
 }
 
-
+/**
+ * Возвращает корректную форму множественного числа(пробел между тысячными), округляет и добавляет знак валюты (₽)
+ * Ограничения: только для чисел
+ *
+ * Пример использования:
+ * $price = 5732,86;
+ * echo "Цена лота lotPrice($price);
+ * Результат: "Цена лота 5 733 ₽"
+ */
+function lotPrice(float $price): string
+{
+    $price = ceil($price);
+    $price = number_format($price, 0, '', ' ');
+    $price .= ' ₽';
+    return $price;
+}

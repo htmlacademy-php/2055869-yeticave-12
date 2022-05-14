@@ -8,7 +8,7 @@ $is_auth = rand(0, 1);
 
 $currentTime = date("H:i");
 
-$user_name = 'erma4ina nenavidit git'; 
+$user_name = 'erma4ina nenavidit git';
 
 $categories = [
     'promo__item--boards' => 'Доски и лыжи',
@@ -58,6 +58,15 @@ $lots = [
         'url' => 'img/lot-6.jpg'
     ],
 ];
+
+function lotPrice(float $price): string
+{
+    $price = ceil($price);
+    $price = number_format($price, 0, '', ' ');
+    $price .= ' ₽';
+    return $price;
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -133,8 +142,8 @@ $lots = [
                                 <h3 class="lot__title"><a class="text-link" href="pages/lot.html"><?= $item['name'] ?></a></h3>
                                 <div class="lot__state">
                                     <div class="lot__rate">
-                                        <span class="lot__amount"><?= $item['price'] ?></span>
-                                        <span class="lot__cost">цена<b class="rub">р</b></span>
+                                        <span class="lot__amount">Стартовая цена</span>
+                                        <span class="lot__cost"><?= lotPrice($item['price']) ?></span>
                                     </div>
                                     <div class="lot__timer timer">
                                         <?= $currentTime ?>
