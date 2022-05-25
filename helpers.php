@@ -159,3 +159,15 @@ function lotPrice(float $price): string
     $price .= ' ₽';
     return $price;
 }
+
+/**
+ * Фильтрует введенные данные и возвращает строку, очищенную от опасных спецсимволов.
+ * @param $str введенные данные, которые надо отфильтровать.
+ * @return string Очищенные от опасных спецсимволов данные.
+ */
+function XSSfiltr($str) {
+    $text = htmlspecialchars($str);
+    //$text = strip_tags($str);
+
+    return $text;
+}
