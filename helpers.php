@@ -165,9 +165,11 @@ function lotPrice(float $price): string
  * @param $str введенные данные, которые надо отфильтровать.
  * @return string Очищенные от опасных спецсимволов данные.
  */
-function XSSfiltr($str) {
+function XSSfiltr(string $str): string
+{
     $text = htmlspecialchars($str);
     //$text = strip_tags($str);
 
     return $text;
 }
+
