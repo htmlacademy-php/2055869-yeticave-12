@@ -15,21 +15,34 @@
             <h2>Открытые лоты</h2>
         </div>
         <ul class="lots__list">
-            <?php foreach ($lots as $key => $item) { ?>
+            <?php foreach ($lots as $key => $item) {
+                $time = timeLeft($item['dateLeft']);
+                if ($time['hours'] < 01 && $time['minutes'] > 00) {
+                    $class = 'lot__timer timer timer--finishing';
+                } else {
+                    if ($time['hours'] < 00) {
+                        continue;
+                    } else {
+                        $class = 'lot__timer timer';
+                    }
+                }
+                ?>
                 <li class="lots__item lot">
                     <div class="lot__image">
                         <img src="<?= XSSfiltr($item['url']) ?>" width="350" height="260" alt="">
                     </div>
                     <div class="lot__info">
                         <span class="lot__category"><?= XSSfiltr($item['category']) ?></span>
-                        <h3 class="lot__title"><a class="text-link" href="pages/lot.html"><?= XSSfiltr($item['name']) ?></a></h3>
+                        <h3 class="lot__title"><a class="text-link"
+                                                  href="pages/lot.html"><?= XSSfiltr($item['name']) ?></a></h3>
                         <div class="lot__state">
                             <div class="lot__rate">
                                 <span class="lot__amount">Стартовая цена</span>
                                 <span class="lot__cost"><?= lotPrice(XSSfiltr($item['price'])) ?></span>
                             </div>
-                            <div class="lot__timer timer">
-                                <?= $currentTime ?>
+                            <div class="<?= $class ?>">
+                                <?= $time['hours'] . ': ' . $time['minutes'] ?>
+
                             </div>
                         </div>
                     </div>

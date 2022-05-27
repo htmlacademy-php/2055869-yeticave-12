@@ -2,8 +2,6 @@
 
 $isAuth = rand(0, 1);
 
-$currentTime = date("H:i");
-
 $userName = 'erma4ina nenavidit git';
 
 $categories = [
@@ -36,14 +34,14 @@ $lots = [
         'category' => 'Крепления',
         'price' => 8000,
         'url' => 'img/lot-3.jpg',
-        'dateLeft' => '2022-07-20'
+        'dateLeft' => '2022-05-27'
     ],
     [
         'name' => 'Ботинки для сноуборда DC Mutiny Charocal',
         'category' => 'Ботинки',
         'price' => 10999,
         'url' => 'img/lot-4.jpg',
-        'dateLeft' => '2022-08-21'
+        'dateLeft' => '2022-07-07'
     ],
     [
         'name' => 'Куртка для сноуборда DC Mutiny Charocal',

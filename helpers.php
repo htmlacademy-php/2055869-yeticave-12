@@ -21,6 +21,32 @@ function is_date_valid(string $date) : bool {
 }
 
 /**
+ * Функция для подсчета оставшегося времени
+ *
+ * @param string $dateLeft Дата в виде строки
+ *
+ * @return bool false при несовпадении с форматом 'ГГГГ-ММ-ДД' и переход к следующему элементу.
+ * Иначе: @return $timeLeft array оставшегося времени до даты в формате чч: мм
+ */
+function timeLeft(string $dateLeft): array|bool {
+    if (!is_date_valid($dateLeft)) {
+        return false;
+    }
+    $target = strtotime($dateLeft);
+    $interval = $target - time();
+    $hours = floor($interval / 3600);
+    $hours = str_pad($hours, 2, "0", STR_PAD_LEFT);
+    $minutes = floor(($interval % 3600) / 60);
+    $minutes = str_pad($minutes, 2, "0", STR_PAD_LEFT);
+    $timeLeft = [
+        'hours' => $hours,
+        'minutes' => $minutes
+    ];
+
+    return $timeLeft;
+}
+
+/**
  * Создает подготовленное выражение на основе готового SQL запроса и переданных данных
  *
  * @param $link mysqli Ресурс соединения
