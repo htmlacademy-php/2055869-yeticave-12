@@ -9,8 +9,7 @@ require('data.php');
 
 $pageContent = include_template('main.php', [
     'categories' => $categories,
-    'lots' => $lots,
-    'currentTime' => $currentTime
+    'lots' => $lots
 ]);
 $layoutContent = include_template('layout.php', [
     'content' => $pageContent,
