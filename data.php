@@ -20,28 +20,28 @@ $lots = [
         'category' => 'Доски и лыжи',
         'price' => 10999,
         'url' => 'img/lot-1.jpg',
-        'dateLeft' => '2022-05-30'
+        'dateLeft' => 'data-vata'
     ],
     [
         'name' => 'DC Ply Mens 2016/2017 Snowboard',
         'category' => 'Доски и лыжи',
         'price' => 159999,
         'url' => 'img/lot-2.jpg',
-        'dateLeft' => '2022-06-15'
+        'dateLeft' => '2022-05-27'
     ],
     [
         'name' => 'Крепления Union Contact Pro 2015 года размер L/XL',
         'category' => 'Крепления',
         'price' => 8000,
         'url' => 'img/lot-3.jpg',
-        'dateLeft' => '2022-05-27'
+        'dateLeft' => '2022-05-29'
     ],
     [
         'name' => 'Ботинки для сноуборда DC Mutiny Charocal',
         'category' => 'Ботинки',
         'price' => 10999,
         'url' => 'img/lot-4.jpg',
-        'dateLeft' => '2022-07-07'
+        'dateLeft' => '2022-05-30'
     ],
     [
         'name' => 'Куртка для сноуборда DC Mutiny Charocal',

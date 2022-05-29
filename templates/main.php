@@ -16,15 +16,15 @@
         </div>
         <ul class="lots__list">
             <?php foreach ($lots as $key => $item) {
+                $class = '';
                 $time = timeLeft($item['dateLeft']);
+                if ($time === false) {
+                    continue;
+                }
                 if ($time['hours'] < 01 && $time['minutes'] > 00) {
-                    $class = 'lot__timer timer timer--finishing';
-                } else {
-                    if ($time['hours'] < 00) {
-                        continue;
-                    } else {
-                        $class = 'lot__timer timer';
-                    }
+                    $class = 'timer--finishing';
+                } elseif ($time['hours'] < 00) {
+                    continue;
                 }
                 ?>
                 <li class="lots__item lot">
@@ -40,7 +40,7 @@
                                 <span class="lot__amount">Стартовая цена</span>
                                 <span class="lot__cost"><?= lotPrice(XSSfiltr($item['price'])) ?></span>
                             </div>
-                            <div class="<?= $class ?>">
+                            <div class="lot__timer timer <?= $class ?>">
                                 <?= $time['hours'] . ': ' . $time['minutes'] ?>
 
                             </div>
