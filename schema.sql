@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS lot (
   COMMENT 'название лота',
   description     TEXT COMMENT 'описание лота',
   img             VARCHAR(128) COMMENT 'ссылка на изображение лота',
-  start_price     INT          NOT NULL
+  start_price     DECIMAL(8,2)          NOT NULL
   COMMENT 'стартовая цена лота',
   expiration_date DATE         NOT NULL
   COMMENT 'дата истечения нахождения лота на сайте',
@@ -48,7 +48,7 @@ CREATE TABLE IF NOT EXISTS bet (
   user_id INT UNSIGNED NOT NULL,
   date    DATETIME     NOT NULL
   COMMENT 'дата и время размещения ставки',
-  price   INT          NOT NULL
+  price   DECIMAL(8,2)          NOT NULL
   COMMENT 'цена, по которой пользователь готов приобрести лот',
   lot_id  INT UNSIGNED NOT NULL,
   FOREIGN KEY (user_id) REFERENCES user (id),
