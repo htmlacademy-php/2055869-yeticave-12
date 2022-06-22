@@ -1,3 +1,5 @@
+-- Часть 1. Запросы для добавления информации в БД:
+
 -- Заполняю таблицу категорий
 INSERT INTO category
 SET name = 'Доски и лыжи', symbol_code = 'boards';
@@ -35,7 +37,7 @@ SET title         = '2014 Rossignol District Snowboard',
   img             = 'img/lot-1.jpg',
   start_price     = '10999',
   bet_step        = '500',
-  expiration_date = '2022-07-03',
+  expiration_date = '2022-06-20',
   user_id         = 1,
   winner_id       = 2,
   category_id     = 1;
@@ -59,7 +61,7 @@ SET title         = 'Крепления Union Contact Pro 2015 года разм
   img             = 'img/lot-3.jpg',
   start_price     = '8000',
   bet_step        = '500',
-  expiration_date = '2022-07-05',
+  expiration_date = '2022-06-19',
   user_id         = 1,
   winner_id       = 2,
   category_id     = 3;
@@ -113,3 +115,53 @@ SET date  = '2022-06-14 22:30:11',
   user_id = 2,
   lot_id  = 5;
 
+
+-- Часть 2. Запросы действий:
+
+-- Показать существующий список категорий
+SELECT *
+FROM category;
+
+-- Показать самые новые, открытые лоты.
+-- Каждый лот должен включать название, стартовую цену, ссылку на изображение, цену, название категории;
+SELECT
+  l.title,
+  start_price,
+  img,
+  b.price,
+  c.name
+FROM lot l
+  JOIN bet b ON l.id = b.lot_id
+  JOIN category c ON l.category_id = c.id
+WHERE expiration_date > now()
+ORDER BY date_of_create ASC;
+
+-- Показать лот по его ID. Получите также название категории, к которой принадлежит лот;
+SELECT
+  l.title,
+  description,
+  img,
+  start_price,
+  expiration_date,
+  bet_step,
+  c.name,
+  c.symbol_code
+FROM lot l
+  JOIN category c
+    ON l.category_id = c.id
+WHERE l.id = 3;
+
+-- Обновляю название лота по его идентификатору;
+UPDATE lot
+SET title = '2015 Rossignol District Snowboard'
+WHERE id = 1;
+
+-- Получить список ставок для лота по его идентификатору с сортировкой по дате
+SELECT
+  b.price,
+  date,
+  l.title
+FROM bet b
+  JOIN lot l ON b.lot_id = l.id
+WHERE lot_id = 5
+ORDER BY date ASC;
