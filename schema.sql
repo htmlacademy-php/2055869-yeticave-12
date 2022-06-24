@@ -39,9 +39,9 @@ CREATE TABLE IF NOT EXISTS lot (
   category_id     INT UNSIGNED NOT NULL,
   winner_id       INT UNSIGNED NOT NULL,
   user_id         INT UNSIGNED NOT NULL,
-  FOREIGN KEY (user_id) REFERENCES user (id),
-  FOREIGN KEY (winner_id) REFERENCES user (id),
-  FOREIGN KEY (category_id) REFERENCES category (id)
+  FOREIGN KEY (user_id) REFERENCES user (id) ON DELETE CASCADE ON UPDATE CASCADE,
+  FOREIGN KEY (winner_id) REFERENCES user (id) ON DELETE CASCADE ON UPDATE CASCADE,
+  FOREIGN KEY (category_id) REFERENCES category (id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 CREATE TABLE IF NOT EXISTS bet (
   id      INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
@@ -51,6 +51,6 @@ CREATE TABLE IF NOT EXISTS bet (
   price   DECIMAL(8,2)          NOT NULL
   COMMENT 'цена, по которой пользователь готов приобрести лот',
   lot_id  INT UNSIGNED NOT NULL,
-  FOREIGN KEY (user_id) REFERENCES user (id),
-  FOREIGN KEY (lot_id) REFERENCES lot (id)
+  FOREIGN KEY (user_id) REFERENCES user (id) ON DELETE CASCADE ON UPDATE CASCADE,
+  FOREIGN KEY (lot_id) REFERENCES lot (id) ON DELETE CASCADE ON UPDATE CASCADE
 );
