@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS lot (
   COMMENT 'название лота',
   description     TEXT COMMENT 'описание лота',
   img             VARCHAR(128) COMMENT 'ссылка на изображение лота',
-  start_price     INT          NOT NULL
+  start_price     DECIMAL(8,2)          NOT NULL
   COMMENT 'стартовая цена лота',
   expiration_date DATE         NOT NULL
   COMMENT 'дата истечения нахождения лота на сайте',
@@ -39,18 +39,18 @@ CREATE TABLE IF NOT EXISTS lot (
   category_id     INT UNSIGNED NOT NULL,
   winner_id       INT UNSIGNED NOT NULL,
   user_id         INT UNSIGNED NOT NULL,
-  FOREIGN KEY (user_id) REFERENCES user (id),
-  FOREIGN KEY (winner_id) REFERENCES user (id),
-  FOREIGN KEY (category_id) REFERENCES category (id)
+  FOREIGN KEY (user_id) REFERENCES user (id) ON DELETE CASCADE ON UPDATE CASCADE,
+  FOREIGN KEY (winner_id) REFERENCES user (id) ON DELETE CASCADE ON UPDATE CASCADE,
+  FOREIGN KEY (category_id) REFERENCES category (id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 CREATE TABLE IF NOT EXISTS bet (
   id      INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
   user_id INT UNSIGNED NOT NULL,
   date    DATETIME     NOT NULL
   COMMENT 'дата и время размещения ставки',
-  price   INT          NOT NULL
+  price   DECIMAL(8,2)          NOT NULL
   COMMENT 'цена, по которой пользователь готов приобрести лот',
   lot_id  INT UNSIGNED NOT NULL,
-  FOREIGN KEY (user_id) REFERENCES user (id),
-  FOREIGN KEY (lot_id) REFERENCES lot (id)
+  FOREIGN KEY (user_id) REFERENCES user (id) ON DELETE CASCADE ON UPDATE CASCADE,
+  FOREIGN KEY (lot_id) REFERENCES lot (id) ON DELETE CASCADE ON UPDATE CASCADE
 );
