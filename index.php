@@ -8,6 +8,11 @@ require('helpers.php');
 require('data.php');
 require('init.php');
 
+$sqlLot = 'SELECT `*` FROM lot';
+$sqlCategor = 'SELECT `*` FROM category';
+$resultLot = mysqli_query($con, $sqlLot);
+$resultCategor = mysqli_query($con, $sqlCategor);
+
 $pageContent = include_template('main.php', [
     'categories' => $categories,
     'lots' => $lots
