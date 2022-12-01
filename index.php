@@ -13,6 +13,9 @@ $sqlCategor = 'SELECT `*` FROM category';
 $resultLot = mysqli_query($con, $sqlLot);
 $resultCategor = mysqli_query($con, $sqlCategor);
 
+$lots = mysqli_fetch_all($resultLot, MYSQLI_ASSOC);
+$categories = mysqli_fetch_all($resultCategor, MYSQLI_ASSOC);
+
 $pageContent = include_template('main.php', [
     'categories' => $categories,
     'lots' => $lots
