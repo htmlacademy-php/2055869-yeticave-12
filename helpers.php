@@ -28,22 +28,22 @@ function is_date_valid(string $date) : bool {
  * @return bool false при несовпадении с форматом 'ГГГГ-ММ-ДД' и переход к следующему элементу.
  * Иначе: @return $timeLeft array оставшегося времени до даты в формате чч: мм
  */
-function timeLeft(string $dateLeft): array|bool {
-    if (!is_date_valid($dateLeft)) {
+function timeLeft(string $expiration_date): array|bool {
+    if (!is_date_valid($expiration_date)) {
         return false;
     }
-    $target = strtotime($dateLeft);
+    $target = strtotime($expiration_date);
     $interval = $target - time();
     $hours = floor($interval / 3600);
     $hours = str_pad($hours, 2, "0", STR_PAD_LEFT);
     $minutes = floor(($interval % 3600) / 60);
     $minutes = str_pad($minutes, 2, "0", STR_PAD_LEFT);
-    $timeLeft = [
+    $expiration_date = [
         'hours' => $hours,
         'minutes' => $minutes
     ];
 
-    return $timeLeft;
+    return $expiration_date;
 }
 
 /**
@@ -178,12 +178,12 @@ function include_template($name, array $data = []) {
  * echo "Цена лота lotPrice($price);
  * Результат: "Цена лота 5 733 ₽"
  */
-function lotPrice(float $price): string
+function lotPrice(float $start_price): string
 {
-    $price = ceil($price);
+    $price = ceil($start_price);
     $price = number_format($price, 0, '', ' ');
     $price .= ' ₽';
-    return $price;
+    return $start_price;
 }
 
 /**
