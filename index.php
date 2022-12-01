@@ -8,7 +8,7 @@ require('helpers.php');
 require('data.php');
 require('init.php');
 
-$sqlLot = 'SELECT `*` FROM lot';
+$sqlLot = 'SELECT `*` FROM lot LEFT JOIN category ON lot.category_id = category.id';
 $sqlCategor = 'SELECT `*` FROM category';
 $resultLot = mysqli_query($con, $sqlLot);
 $resultCategor = mysqli_query($con, $sqlCategor);
