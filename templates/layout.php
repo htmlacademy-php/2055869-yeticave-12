@@ -53,9 +53,9 @@
 <footer class="main-footer">
     <nav class="nav">
         <ul class="nav__list container">
-            <?php foreach ($categories as $categoryName) { ?>
+            <?php foreach ($categories as $key => $row) { ?>
                 <li class="nav__item">
-                    <a href="pages/all-lots.html"><?= XSSfiltr($categoryName) ?></a>
+                    <a href="pages/all-lots.html"><?= XSSfiltr($row['name']) ?></a>
                 </li>
             <?php } ?>
         </ul>
