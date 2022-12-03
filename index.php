@@ -6,31 +6,14 @@ error_reporting(E_ALL);
 
 require('helpers.php');
 require('data.php');
-
-try {
 require('init.php');
 
 $sqlLot = 'SELECT `*` FROM lot LEFT JOIN category ON lot.category_id = category.id ORDER BY date_of_create DESC';
 $sqlCategor = 'SELECT `*` FROM category';
 $resultLot = mysqli_query($con, $sqlLot);
 $resultCategor = mysqli_query($con, $sqlCategor);
-
-if (!$resultLot or !$resultCategor) {
-    $initError = mysqli_error($con);
-}
-else {
 $lots = mysqli_fetch_all($resultLot, MYSQLI_ASSOC);
 $categories = mysqli_fetch_all($resultCategor, MYSQLI_ASSOC);
-}
-
-}catch (\Throwable $th) {
-    
-    $initError = $th->getMessage();
-
-    $errorContent = include_template('InitError.php', ['error' => $initError]);
-    print($errorContent);
-    exit;
-}
 
 $pageContent = include_template('main.php', [
     'categories' => $categories,

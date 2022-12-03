@@ -9,5 +9,4 @@ print("дырдык-дырдык, кусыралма Соединение уст
 
 $lots = [];
 $categories = [];
-$errorContent = [];
 
