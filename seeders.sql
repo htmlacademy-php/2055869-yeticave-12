@@ -2,7 +2,7 @@
 
 -- Заполняю таблицу категорий
 INSERT INTO category (name, symbol_code)
-VALUES ('Доски и лыжи', 'boards'), ('Крепления', 'attachment'), ('Ботинки', 'boots'), ('Одежда', 'clothing'),
+VALUES ('Доски и лыжи', 'boards'), ('Крепления', 'attachment'), ('Ботинки-мотинки да', 'boots'), ('Одежда', 'clothing'),
   ('Инструменты', 'tools'), ('Разное', 'other');
 
 -- Заполняю таблицу пользователей
@@ -15,7 +15,7 @@ INSERT INTO lot
 (date_of_create, title, description, img, start_price, expiration_date, bet_step, category_id, winner_id, user_id)
 VALUES ('2022-11-27 20:30:11', '2014 Rossignol District Snowboard', 'хороший борд, под пивко', 'img/lot-1.jpg',
         '10999', '2022-12-10', '500', 1, 2, 1),
-  ('2022-11-29 15:30:15', 'DC Ply Mens 2016/2017 Snowboard', 'деревяга', 'img/lot-2.jpg', '159999', '2022-12-12', '500',
+  ('2022-12-03 15:30:15', 'DC Ply Mens 2016/2017 Snowboard', 'деревяга', 'img/lot-2.jpg', '159999', '2022-17-12', '500',
    1, 1, 2),
   ('2022-11-28 22:30:15', 'Крепления Union Contact Pro 2015 года размер L/XL', 'хендмейд, стабильность не гарантирую',
    'img/lot-3.jpg', '8000', '2022-12-11', '500', 2, 2, 1),
