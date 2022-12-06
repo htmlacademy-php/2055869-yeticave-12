@@ -12,3 +12,4 @@ uploads/*
 !uploads/.gitkeep
 .vscode/*
 .vscode/extensions.json
+config/configDB.php
