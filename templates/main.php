@@ -17,14 +17,16 @@
         <ul class="lots__list">
             <?php foreach ($lots as $key => $item) {
                 $class = '';
-                $time = timeLeft($item['expiration_date']);
-                if ($time === false) {
-                    continue;
-                }
-                if ($time['hours'] < 01 && $time['minutes'] > 00) {
-                    $class = 'timer--finishing';
-                } elseif ($time['hours'] < 00) {
-                    continue;
+                if (!is_date_valid($item['expiration_date'])) {
+                    print('некорректный формат даты');
+                } 
+                else {
+                    $time = timeLeft($item['expiration_date']);
+                    if ($time['hours'] < 01 && $time['minutes'] > 00) {
+                        $class = 'timer--finishing';
+                    } elseif ($time['hours'] < 00) {
+                        continue;
+                    }
                 }
                 ?>
                 <li class="lots__item lot">

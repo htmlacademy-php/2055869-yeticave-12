@@ -28,10 +28,7 @@ function is_date_valid(string $date) : bool {
  * @return bool false при несовпадении с форматом 'ГГГГ-ММ-ДД' и переход к следующему элементу.
  * Иначе: @return $timeLeft array оставшегося времени до даты в формате чч: мм
  */
-function timeLeft(string $expiration_date): array|bool {
-    if (!is_date_valid($expiration_date)) {
-        return false;
-    }
+function timeLeft(string $expiration_date): array {
     $target = strtotime($expiration_date);
     $interval = $target - time();
     $hours = floor($interval / 3600);
