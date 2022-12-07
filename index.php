@@ -6,6 +6,7 @@ error_reporting(E_ALL);
 
 require('helpers.php');
 require('data.php');
+require('init.php');
 require('dataProviders/lotDataProvider.php');
 require('dataProviders/categoryDataProvider.php');
 
