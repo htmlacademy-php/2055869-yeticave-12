@@ -10,6 +10,9 @@ require('init.php');
 require('dataProviders/lotDataProvider.php');
 require('dataProviders/categoryDataProvider.php');
 
+$categories = getCategoryList($con);
+$lots = getLotsList($con);
+
 $pageContent = include_template('main.php', [
     'categories' => $categories,
     'lots' => $lots
