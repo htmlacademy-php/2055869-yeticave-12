@@ -1,6 +1,7 @@
 .DS_Store
 .idea
 *.ai
+.project
 *.log
 *.pdf
 *.psd
@@ -11,3 +12,4 @@ uploads/*
 !uploads/.gitkeep
 .vscode/*
 .vscode/extensions.json
+config/configDB.php
